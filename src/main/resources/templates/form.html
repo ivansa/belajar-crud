@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Getting Started: Serving Web Content</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+        <p th:text="'Hello, ' + ${halo2} + '!'" />
+
+        <form th:action="@{/form}" method="POST" th:object="${pegawai}">
+            <input type="hidden" th:field="*{id}" />
+            <pre>
+            Kode : <input type="text" th:field="*{code}" />    
+            <span th:if="${#fields.hasErrors('code')}" th:errors="*{code}"></span>
+                           
+            Name : <input type="text" th:field="*{name}" />    
+            <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+                           
+            <button type="submit">Submit</button>
+            </pre>
+        </form>
+    </body>
+</html>
